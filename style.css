@@ -1,0 +1,41 @@
+body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: gray;}
+
+#header{
+text-align: center;
+color: white;
+background-color: tomato;
+padding-top: 10px;
+padding-bottom: 10px;
+
+}
+#content{background-color: blueviolet;
+    text-align: center;
+    margin-top: 5px;
+    padding-bottom: 1px;
+    padding-top: 7px;
+    
+}
+#search{
+    border-radius: 10px;
+    border: solid 4px tomato;
+}
+#btn{
+    color: tomato;
+    border: solid 4px tomato;
+    border-radius: 10px;
+}
+
+
+
+
+.image {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.results {
+    margin-top: 50px;
+}
