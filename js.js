@@ -1,22 +1,28 @@
 $(document).ready(function(){
     let btn = $('#btn')
     let text_input = $('#search')
+
     btn.click(function(){
         $('.results').empty()
         let text_input_value = text_input.val()
+        var info = $("#start-div")
         if(text_input_value !== ''){
             startConnect(text_input_value);
+            info.css.display = ("none")
         }else {
-            let errText = $(document.createElement('p'))
-            errText[0].innerHTML = 'required field';
-            errText.appendTo('.results')
+            alert("REQUIRED");
         }
     })
 })
+$("#search").keyup(function(event) {
+  if (event.keyCode === 13) {
+      $("#btn").click();
+  }
+});
 
 function startConnect(str){
-    let api_key = 'YXY14YGLASBG';
-    let api_limit = 21;
+    let api_key = '608XWZCB7ZGW';
+    let api_limit = 40;
     let api_str = str;
     let api_url = 'https://api.tenor.com/v1/search?q='+api_str+'&key='+api_key+'&limit='+api_limit;
     let http = new XMLHttpRequest();
@@ -31,7 +37,9 @@ function startConnect(str){
                 getDataFromAPI(api_results, api_str);
             }else {
                 let errText = $(document.createElement('p'))
-                errText[0].innerHTML = 'Not found';
+                errText.css("font-size", "100px");
+                errText.css("color", "#3FC1C9");
+                errText[0].innerHTML = 'NOT FOUND'
                 errText.appendTo('.results')
             }
             
@@ -48,6 +56,9 @@ function getDataFromAPI(results, alt){
         image.attr('alt', alt)
         image.attr('class', 'image')
         image.appendTo(result_div)
+        image.click(function(){
+          window.open(result.media[0].gif.url)
+        });
     });
 
 }
